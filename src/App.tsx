@@ -7,7 +7,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<PhotoDetail>();
 
-  async function getData() {
+  async function getData(): Promise<void> {
     try {
       setLoading(true);
       const response = await fetch(API_URL);
@@ -21,7 +21,8 @@ function App() {
   }
 
   useEffect(() => {
-    setTimeout(() => getData(), 10000);
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    setTimeout(() => getData(), 10000); // 10 seconds to mock the delay in receiving API data
   }, []);
 
   return (

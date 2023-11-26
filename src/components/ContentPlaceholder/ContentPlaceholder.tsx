@@ -6,15 +6,17 @@ const ContentPlaceholder = ({
   shapes,
   loading,
   children,
+  customClass = "animated-bg",
 }: {
   shapes: Shape[];
   loading: boolean;
   children: ReactElement;
+  customClass?: string;
 }) => {
   function getShapeElement(
     {
       type,
-      width,
+      width = "100%",
       height = type === Shapes.LINE ? "2rem" : "15rem",
       customStyles,
     }: Shape,
@@ -23,15 +25,15 @@ const ContentPlaceholder = ({
     return (
       <div
         key={index}
-        className="animated-bg"
+        className={customClass}
         style={{ width, height, ...customStyles }}
       ></div>
     );
   }
 
-  const skeletonItems = shapes.map((shape, index) => {
-    return getShapeElement(shape, index);
-  });
+  const skeletonItems = shapes.map((shape, index) =>
+    getShapeElement(shape, index)
+  );
 
   return (
     <>{loading ? <div className="card">{skeletonItems}</div> : children}</>
