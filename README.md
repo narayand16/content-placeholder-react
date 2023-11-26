@@ -8,15 +8,19 @@ This project contains a reusable content placeholder component, built using Reac
 
 Live URL - https://content-placeholder-react.netlify.app/
 
-Video - <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/5bbe2ea3ae5b4dfa8b20dfb7adbb819c?sid=eb17b15b-0d4c-4259-99f4-efbc1d787194" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+Video - 
+
+https://github.com/narayand16/content-placeholder-react/assets/29942751/5eeff0be-77b9-4131-82a2-a5d51ae6eb22
+
+
 
 # How to run the project on local machine
 
 1. Make sure nodejs is installed on your system. If not, download nodejs from [here](https://nodejs.org/en/download/current) and install it.
 
 2. Unzip the project file. Open the terminal and change the current working directory to unzipped folder.
-3. Enter command 'npm install' to install necessary node modules into the project
-4. Enter command 'npm run dev' to run the project locally.
+3. Enter command `npm install` to install necessary node modules into the project
+4. Enter command `npm run dev` to run the project locally.
 
 You should be able to see project running on http://localhost:5173/. You can control + click on the same link to open it in the browser or copy-paste the same in your favourite browser.
 
