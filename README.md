@@ -8,11 +8,9 @@ This project contains a reusable content placeholder component, built using Reac
 
 Live URL - https://content-placeholder-react.netlify.app/
 
-Video - 
+Video -
 
 https://github.com/narayand16/content-placeholder-react/assets/29942751/5eeff0be-77b9-4131-82a2-a5d51ae6eb22
-
-
 
 # How to run the project on local machine
 
@@ -27,4 +25,4 @@ You should be able to see project running on http://localhost:5173/. You can con
 # Approach taken
 
 Hi!
-I created a very naive loading animation first. I referred to different animations present on w3schools website and took help from there to make the loading animation. I hardcoded the template with respective css classes to check the loading animation. In first iteration of interface for Skeleton structure, I added count(number of times the shape to be rendered) for each shape, so that I could iterate over it when creating template and could show the shapes. However, I faced some errors and it took some time to resolve that. Then I skipped this count property and thought of having the interface without it. In the finalised iteration of the interface, I added relevant properties which can help the user to customize each shape. I created a default array of objects to be passed as prop to Content Placeholer component. Imported the same in App component to verify if the loading animation stops after child component is laoded.
+I created a very naive loading animation first. I referred to different animations present on w3schools website and took help from there to make the loading animation. I hardcoded the template with respective css classes to check the loading animation. In first iteration of interface for Skeleton structure, I added count(number of times the shape to be rendered) for each shape, so that I could iterate over it when creating template and could show the shapes. However, I faced some errors and it took some time to resolve that. Then I skipped this count property and thought of having the interface without it. In the finalised iteration of the interface, I added relevant properties which can help the user to customize each shape. I created a default array of objects to be passed as prop to Content Placeholer component. Imported the same in App component to verify if the loading animation stops after child component is loaded.
