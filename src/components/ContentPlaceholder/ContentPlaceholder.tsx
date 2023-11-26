@@ -1,19 +1,41 @@
-interface SkeletonStructure {
-  type: "sqaure" | "circle" | "rectangle" | "text";
-  count: number;
-}
+import { ReactElement } from "react";
+import { Shapes, Shape } from "../../models/data-models";
+import "./ContentPlaceholder.css";
+
 const ContentPlaceholder = ({
-  skeletonList,
+  shapes,
+  loading,
+  children,
 }: {
-  skeletonList: SkeletonStructure[];
+  shapes: Shape[];
+  loading: boolean;
+  children: ReactElement;
 }) => {
-  const skeletons = [];
-  for (let i = 0; i < skeletonList.length; i++) {
-    skeletons.push(
-      <div className={`skeleton ${skeletonList[i].type}`} key={i}></div>
+  function getShapeElement(
+    {
+      type,
+      width,
+      height = type === Shapes.LINE ? "2rem" : "15rem",
+      customStyles,
+    }: Shape,
+    index: number
+  ) {
+    return (
+      <div
+        key={index}
+        className="animated-bg"
+        style={{ width, height, ...customStyles }}
+      ></div>
     );
   }
-  return <div>{skeletons}</div>;
+
+  const skeletonItems = shapes.map((shape, index) => {
+    return getShapeElement(shape, index);
+  });
+
+  return (
+    <>{loading ? <div className="card">{skeletonItems}</div> : children}</>
+  );
 };
 
 export default ContentPlaceholder;

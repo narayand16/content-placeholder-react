@@ -1,19 +1,13 @@
 .card {
-  width: 30rem;
+  width: 25rem;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
   border-radius: 0.5rem;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card-img {
-  width: 100%;
-  height: 15rem;
+  overflow: hidden;
 }
 
 .animated-bg {
-  animation: bgPosition 1s linear infinite;
+  animation: bgPosition 1.5s linear infinite;
   border-radius: 0.25rem;
   background-size: 200% 100%;
   background-image: linear-gradient(
@@ -23,13 +17,6 @@
     #f6f7f8 30%,
     #f6f7f8 100%
   );
-}
-.animated-bg-text {
-  border-radius: 0.25rem;
-  height: 2rem;
-  width: 100%;
-  display: inline-block;
-  margin: 0.5rem 0;
 }
 
 @keyframes bgPosition {

@@ -1,43 +1,39 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Loader from "./components/Loader/Loader";
-
-interface PhotoDetail {
-  id: number;
-  albumId: number;
-  title: string;
-  url: string;
-  thumbnailUrl: string;
-}
+import { API_URL, DEFAULT_SKELETON, PhotoDetail } from "./models/data-models";
+import ContentPlaceholder from "./components/ContentPlaceholder/ContentPlaceholder";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<PhotoDetail>();
 
   async function getData() {
-    setLoading(true);
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/photos/1"
-    );
-    const data = await response.json();
-    setData(data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const response = await fetch(API_URL);
+      const data = (await response.json()) as PhotoDetail;
+      setData(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
-    setTimeout(() => getData(), 5000);
+    setTimeout(() => getData(), 10000);
   }, []);
 
   return (
     <>
-      {/* <h3>Content Placeholder</h3> */}
-      <Loader loading={loading}>
+      <h3 style={{ textAlign: "center" }}>Content Placeholder</h3>
+      <ContentPlaceholder loading={loading} shapes={DEFAULT_SKELETON}>
         <div className="card">
-          {/* <p>I am going to loaded here</p> */}
-          <img src={data?.thumbnailUrl} alt="thumbnail" />
+          <img className="card-img" src={data?.thumbnailUrl} alt="thumbnail" />
+          <p>{data?.title}</p>
           <p>{data?.title}</p>
         </div>
-      </Loader>
+      </ContentPlaceholder>
     </>
   );
 }
